@@ -72,9 +72,7 @@ class Orden{
     }
 
     toString(){
-        return `Numero de Orden (ID) : ${this._idProducto} -
-        Cant. Productos registrados: ${this.contadorProductosAgregados} - 
-        Total: ${this.calcularTotal()}`;
+        return `Numero de Orden (ID) : ${this._idProducto} - \n Cant. Productos registrados: ${this.contadorProductosAgregados} - \n Total: ${this.calcularTotal()}`;
     }
 }
 
