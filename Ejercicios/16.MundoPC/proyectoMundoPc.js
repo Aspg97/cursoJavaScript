@@ -161,7 +161,7 @@ class Orden{
     mostrarOrden(){
         console.log(`Odern N°: ${this._idOrden}`);
         for(let compu of this._computadoras){
-            console.log();
+            console.log(this._computadoras[compu]);
         }
     }
 
