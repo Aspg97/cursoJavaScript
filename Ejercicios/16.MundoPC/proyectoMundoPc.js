@@ -139,7 +139,8 @@ class Computadora{
 class Orden{
     static contadorOrden = 0;
     constructor(){
-        this._idOrden = Orden.contadorOrden++;
+        this._idOrden = ++Orden.contadorOrden;
+        this._computadoras = [];
     }
 
     get idOrden(){
@@ -159,9 +160,9 @@ class Orden{
     }
 
     mostrarOrden(){
-        console.log(`Odern N°: ${this._idOrden}`);
-        for(let compu of this._computadoras){
-            console.log(this._computadoras[compu]);
+        console.log(`Numero de orden: ${this._idOrden}`);
+        for(let compu in this._computadoras){
+            console.log(`Nombre de la computadora: ${this._computadoras[compu].nombre}\nMonitor: [ID: ${this._computadoras[compu].monitor.idMonitor}, Marca: ${this._computadoras[compu].monitor.marca},Tamano: ${this._computadoras[compu].monitor.size}]\nRaton: [ID: ${this._computadoras[compu].raton.idRaton}, Tipo de entrada: ${this._computadoras[compu].raton.tipoEntrada}, Marca: ${this._computadoras[compu].raton.marca}]\nTeclado: [ID: ${this._computadoras[compu].teclado.idTeclado}, Tipo de entrada: ${this._computadoras[compu].teclado.tipoEntrada}, Marca: ${this._computadoras[compu].teclado.marca}]`);
         }
     }
 
@@ -180,4 +181,10 @@ let computadora1 = new Computadora("La mas top",monitor1,teclado1,raton1);
 let computadora2 = new Computadora("La mas top de las top",monitor2,teclado2,raton2);
 console.log(computadora1.toString());
 console.log(computadora2.toString());
-console.log(computadora2.toString());
+let orden1 = new Orden();
+let orden2 = new Orden();
+orden1.agregarComputadora(computadora1);
+orden1.agregarComputadora(computadora2);
+orden2.agregarComputadora(computadora2);
+orden1.mostrarOrden();
+orden2.mostrarOrden();
