@@ -180,3 +180,4 @@ let computadora1 = new Computadora("La mas top",monitor1,teclado1,raton1);
 let computadora2 = new Computadora("La mas top de las top",monitor2,teclado2,raton2);
 console.log(computadora1.toString());
 console.log(computadora2.toString());
+console.log(computadora2.toString());
