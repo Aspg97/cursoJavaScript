@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo DOM con JavaScript</title>
+    <style>
+        .azul{
+            color: blue;
+        }
+
+        .rojo{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <b>Primer Ejercicio accediendo a elementos del DOM</b>
+    <hr>
+    <h1 id="cabecero">DOM con JavaScript</h1>
+    <p id="parrafo">Holisssss!</p>
+    <hr>
+    <b>Segundo Ejercicio cambiando valor del parrafo</b>
+    <hr>
+    <p id="parrafo2">Este contenido se va a cambiar</p>
+    <h1 id="cabecero2">DOM con JavaScript</h1>
+    <hr>
+    <b>Tercer Ejercicio: accediendo a distintos elementos de la misma etiqueta</b>
+    <hr>
+    <h1 id="cabecero3">DOM con JavaScript</h1>
+    <p id="parrafo3">Este es el tercer parrado del documento</p>
+    <p id="parrafo4">Este es el cuarto parrafo del documento</p>
+    <hr>
+    <b>Cuarto Ejercicio: accediendo a distintos elementos de la misma etiqueta</b>
+    <hr>
+    <h1 class="azul" id="cabecero3">DOM con JavaScript</h1>
+    <p class="azul" id="parrafo5">Este es el quinto parrado del documento</p>
+    <p class="azul" id="parrafo6">Este es el sexto parrafo del documento</p>
+    <hr>
+    <b>Quinto Ejercicio: accediendo a distintos elementos de la misma etiqueta con misma clase</b>
+    <hr>
+    <h1 class="rojo" id="cabecero3">DOM con JavaScript</h1>
+    <p class="rojo" id="parrafo5">Este es el septimo parrado del documento</p>
+    <p class="rojo" id="parrafo6">Este es el octavo parrafo del documento</p>
+    <script>
+        const cab = document.getElementById("cabecero").innerHTML;
+        const parr = document.getElementById("parrafo").innerHTML;
+        console.log("Saludos desde JS");
+        console.log(cab);
+        console.log(parr);
+        console.log("<----------------------------------------->");
+        //Inicio de segundo ejemplo, cambiando contenido del parrado del DOM
+        const parr2 = document.getElementById("parrafo2");
+        const cab2 = document.getElementById("cabecero2");
+        console.log(`Asi esta en el codigo del parrafo -->${parr2.innerHTML}`);
+        console.log(`Asi esta en el codigo  de la cabecera --> ${cab2.innerHTML}`);
+        parr2.innerHTML = "este contenido ya se ha cambiando";
+        cab2.innerHTML = "Hola ahora cambie el cabecero";
+        console.log("<----------------------------------------->");
+        //inicio del tercer ejercicio seleccion de varios objetos de la misma etiqueta del DOM
+        const parrafos = document.getElementsByTagName("p");
+        console.log(`El numero de parrafos que tiene el documento es: ${parrafos.length}`);
+        for(let i=0;i<parrafos.length;i++){
+            console.log(`Parrafo Num. ${i+1}: ${parrafos[i].innerHTML}`);
+        }
+        console.log("<----------------------------------------->");
+        //inicio cuarto ejercicio seleccion de varios elementos con la misma clase
+        const parrafosMimaClase = document.getElementsByClassName("azul");
+        console.log(`El numero de elementos que tiene el documento de color azul es: ${parrafosMimaClase.length}`);
+        for(let elementos of parrafosMimaClase){
+            console.log(`Elemento: ${elementos.innerHTML}`);
+        }
+        console.log("<----------------------------------------->");
+        //Inicio quinto ejercicio seleccion de varios elementos con misma clase de otra forma
+        const parrafosMimaClaseOtro = document.querySelectorAll("p.rojo");
+        console.log(`El numero de parrafos que tiene el documento de color rojo  es: ${parrafosMimaClaseOtro.length}`);
+        for(let elementos of parrafosMimaClaseOtro){
+            console.log(`Parrafo: ${elementos.innerHTML}`);
+        }
+        console.log("<----------------------------------------->");
+    </script>
+</body>
+</html>
