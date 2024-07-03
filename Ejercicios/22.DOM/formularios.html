@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo formulario Formulario</title>
+</head>
+<body>
+    <hr>
+    <b>Primer Ejercicio formulario</b>
+    <hr>
+    <form action="" id="formulario" name="formu1">
+        <label for="">Nombre:</label><input type="text" name="nombre" value="Anthony">
+        <br>
+        <label for="">Apellido:</label> <input type="text" name="apellido" value="Pacheco">
+        <br>
+    </form>
+    <button onclick="mostrarValores1()" form="formu1">Mostrar</button>
+    <div id="val"></div>
+    <hr>
+    <b>Segundo Ejercicio formulario accediendo individual</b>
+    <hr>
+    <form action="" id="formulario2" name="formu2">
+        <label for="">Nombre:</label><input type="text" name="nombre" value="Anthony">
+        <br>
+        <label for="">Apellido:</label> <input type="text" name="apellido" value="Pacheco">
+        <br>
+    </form>
+    <button onclick="mostrarValores2()" form="formu2">Mostrar</button>
+    <div id="val2"></div>
+    <script>
+        function mostrarValores1(){
+            const form = document.forms["formulario"];
+            let texto='';
+            for(let elemento of form){
+                texto += elemento.value + '\n';
+            }
+            console.log(texto);
+            const val = document.getElementById('val');
+            val.innerHTML=texto
+        }
+        //Segundo Ejercicio
+        function mostrarValores2(){
+            const form = document.forms["formulario2"];
+            const val = document.getElementById('val2');
+            let nombre = form['nombre'];
+            let apellido = form['apellido'];
+            console.log(nombre.value+"\n"+apellido.value);
+            val.innerHTML=nombre.value+"<br/>"+apellido.value;
+        }
+    </script>
+</body>
+</html>

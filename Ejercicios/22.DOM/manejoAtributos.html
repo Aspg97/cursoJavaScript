@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Modificando Elementos</title>
+</head>
+<body>
+    <h1 id="titulo">Cambiando imagen con JS</h1>
+    <button onclick="mostrar()">mostrar</button>
+    <br/>
+    <img src="https://images-prod.dazeddigital.com/1001/azure/dazed-prod/1290/9/1299926.jpg" alt="" id="imagen">
+    <hr>
+    <b>Cambiando css</b>
+    <hr>
+    <h1 id="tituloCSS">Cambiando imagen con JS</h1>
+    <button onclick="cambiarColorTitulo()" form="none">mostrar</button>
+    <script>
+        function cambiarColorTitulo(){
+            document.getElementById('tituloCSS').style.color = 'red';
+        }
+    </script>
+</body>
+</html>
