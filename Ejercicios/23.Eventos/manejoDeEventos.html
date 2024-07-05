@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+</head>
+<body onload="entrar()">
+    <hr>
+    <b>Ejemplo 1 de eventos</b>
+    <hr>
+    <h1 onclick="cambiarTexto(this)">Titulo para eventos</h1>
+    <hr>
+    <b>Ejemplo 2 de eventos</b>
+    <hr>
+    <h1 id="tituloE2">Titulo para eventos</h1>
+    <div id="mostrar1"></div>
+    <hr>
+    <b>Ejemplo 3 de eventos</b>
+    <hr>
+    <h1 id="tituloE3">Evento onloads</h1>
+    <div id="mostrar2"></div>
+    <hr>
+    <b>Ejemplo 4 de eventos</b>
+    <hr>
+    <h1 id="tituloE4">Evento onchange</h1>
+    Nombre: <input type="text" onchange="convertir(this)">
+    <hr>
+    <b>Ejemplo 5 de eventos</b>
+    <hr>
+    <h1 id="tituloE5" onmouseover="azul(this)" onmouseout="negro(this)">Evento onmouseover y onmouseout</h1>
+    <hr>
+    <b>Ejemplo 6 de eventos</b>
+    <hr>
+    <h1 id="tituloE6" onmousedown="azulO(this)" onmouseup="negroO(this)" onclick="rojo(this)">Evento onmousedown, onmouseup y onclick</h1>
+    <hr>
+    <b>Ejemplo 7 de eventos</b>
+    <hr>
+    <h1 id="tituloE7">Evento onfocus, onblur</h1>
+    Nombre: <input type="text" onfocus="cambiarFondo(this)" onblur="regresar(this)"> //
+    Apellido: <input type="text"  onfocus="cambiarFondo(this)" onblur="regresar(this)">
+    <hr>
+    <b>Ejemplo 8 de eventos</b>
+    <hr>
+    <h1 id="tituloE8">Evento addEventListener</h1>
+    Nombre: <input type="text" id="nombre8"> //
+    Apellido: <input type="text" id="apellido8">
+    <hr>
+    <b>Ejemplo 9 de eventos</b>
+    <hr>
+    <h1 id="tituloE8">Evento addEventListener con funciones flecha</h1>
+    Nombre: <input type="text" id="nombre9"> //
+    Apellido: <input type="text" id="apellido9">
+    <hr>
+    <b>Ejemplo 10 de eventos</b>
+    <hr>
+    <h1 id="tituloE8">Evento addEventListener simplificado</h1>
+    <form action="" id="formulario10">
+        Nombre: <input type="text" id="nombre10"> //
+        Apellido: <input type="text" id="apellido10">
+    </form>
+    <script>
+        //Primer Ejemplo
+        function cambiarTexto(titulo){
+            titulo.innerHTML = "Nuevo Titulo";
+        }
+        //Segundo Ejemplo
+        const titulo = document.getElementById('tituloE2');
+        titulo.onclick=cambiarTexto2;
+        function cambiarTexto2(){
+            document.getElementById('mostrar1').innerHTML = "Nuevo Titulo 2";
+        }
+        //Tercer Ejemplo
+        function entrar(){
+            //alert('Se a cargado la pagina');
+            let texto = '';
+            if(navigator.cookieEnabled){
+                texto = 'Las cookies estan habilitadas';
+            }else{
+                texto = 'Las cookies estan deshabilitadas';
+            }
+            document.getElementById('mostrar2').innerHTML = texto;
+        }
+        //Cuarto Ejemplo
+        function convertir(conIn){
+            conIn.value = conIn.value.toUpperCase();
+        }
+        //Quinto Ejemplo
+        function azul(titulo){
+            titulo.style.color = 'blue';
+        }
+        function negro (titulo){
+            titulo.style.color = 'black'
+        }
+        //Sexto Ejemplo
+        function azulO(titulo){
+            titulo.style.color = 'blue';
+            console.log('azul');
+        }
+        function negroO(titulo){
+            titulo.style.color = 'black'
+            console.log('negro');
+        }
+        function rojo(titulo){
+            titulo.style.color = 'red'
+            console.log('rojo');
+        }
+        //Septimo Ejemplo
+        function cambiarFondo(inNombre){
+            inNombre.style.background = 'yellow';
+        }
+        function regresar(inNombre){
+            inNombre.style.background = 'white'
+        }
+        //Octavo ejemplo
+        document.getElementById('nombre8').addEventListener("focus",cambiarFocus);
+        document.getElementById('nombre8').addEventListener("blur",cambiarBlur);
+        document.getElementById('apellido8').addEventListener("focus",cambiarFocus);
+        document.getElementById('apellido8').addEventListener("blur",cambiarBlur);
+        function cambiarFocus(evento){
+            let elemento = evento.target;
+            elemento.style.background = 'cyan';
+        }
+        function cambiarBlur(evento){
+            let elemento = evento.target;
+            elemento.style.background = 'white';
+        }
+        //Noveno Ejemplo
+        document.getElementById('nombre9').addEventListener("focus",(evento)=>{evento.target.style.background = 'magenta';});
+        document.getElementById('nombre9').addEventListener("blur",(evento)=>{evento.target.style.background = 'white';});
+        document.getElementById('apellido9').addEventListener("focus",(evento)=>{evento.target.style.background = 'magenta';});
+        document.getElementById('apellido9').addEventListener("blur",(evento)=>{evento.target.style.background = 'white';});
+        //Decimo Ejemplo
+        const formulario  = document.getElementById('formulario10');
+        formulario.addEventListener("focus",(evento)=>{evento.target.style.background = 'pink';},true);
+        formulario.addEventListener("blur",(evento)=>{evento.target.style.background = 'white';},true);
+    </script>
+</body>
+</html>
