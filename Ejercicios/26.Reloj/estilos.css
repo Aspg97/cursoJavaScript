@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(fondoReloj_800x1200.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
+    height: 95vh;
+}
+
+.contenedor-reloj{
+    background-color: #FF6800;
+    width: 50%;
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    border: solid 5px #fff;
+}
+
+.hora{
+    text-align: center;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 100px;
+    background-color: #fff;
+    width: 70%;
+    display: inline-block;
+    border: solid 5px #000;
+}
+
+.dia-completo{
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 30px;
+}
